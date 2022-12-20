@@ -114,20 +114,8 @@ if (findUser(usernameInput, passwordInput))
         }
         else if (menuOption == "3")
         {
-            // Bubble Sort from lowest to highest price
-            for (int i = 0; i < products.Count; i++)
-            {
-                for (int j = 0; j < products.Count - (i + 1); j++)
-                {
-                    int compare = products[j].Price.CompareTo(products[j + 1].Price);
-                    if (compare == 1)
-                    {
-                        int chng = products[j + 1].Price;
-                        products[j + 1].Price = products[j].Price;
-                        products[j].Price = chng;
-                    }
-                }
-            }
+            // Sort from lowest to highest price 
+            products.Sort((p1, p2) => p1.Price.CompareTo(p2.Price));
             // Display products
             foreach (Product product in products)
             {
